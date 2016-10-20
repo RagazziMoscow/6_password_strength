@@ -42,8 +42,10 @@ def get_password_strength(password):
 
 	# Если пароль непустой
 	strength_value = 1
+	# Если пароль - это строка или число
 	if(is_number(password) or is_alpha_string(password)):
 		return strength_value
+		
 	if(check_case_sensitivity(password)):
 		strength_value+=3
 	if(is_numerical_digits(password)):
