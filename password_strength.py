@@ -1,32 +1,26 @@
 import re
 
 
-# Проверяет чувствительность к регистру
 def check_case_sensitivity(pass_string):
-    return (False if(pass_string.islower() or pass_string.isupper()) else True)
+    return not(pass_string.islower() or pass_string.isupper())
 
 
-# Проверяет, есть ли цифры в строке
 def is_numerical_digits(pass_string):
-    return (True if(re.search('[0-9]', pass_string) is not None) else False)
+    return bool(re.search('[0-9]', pass_string))
 
 
-# Проверяет, есть ли метасимволы в строке
 def is_metacharacters(pass_string):
-    return (True if(re.search('\#|\$|\@|\%|\^|\&|\?|\!', pass_string) is not None) else False)
+    return bool(re.search('\#|\$|\@|\%|\^|\&|\?|\!', pass_string))
 
 
-# Проверяет, является ли пароль числом
 def is_number(pass_string):
-    return(True if(pass_string.isnumeric()) else False)
+    return pass_string.isnumeric()
 
 
-# Проверяет, является ли пароль только строкой
 def is_alpha_string(pass_string):
-    return (True if(pass_string.isalpha()) else False)
+    return pass_string.isalpha()
 
 
-# Считает оценку паролю
 def get_password_strength(password):
     # Если пароль пустой
     if(password is ""):
